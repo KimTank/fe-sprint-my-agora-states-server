@@ -1,4 +1,5 @@
 const express = require('express');
+const ip = require('ip');
 const app = express();
 
 const cors = require('cors');
@@ -29,7 +30,10 @@ app.get('/', (req, res) => {
 
 const server = app.listen(port, () => {
   console.log(`[RUN] My Agora States Server... | http://localhost:${port}`);
+  console.log(`[RUN] My Agora States Server... | http://${ip.address()}:${port}`);
+  console.log(server.address());
 });
 
 module.exports.app = app;
 module.exports.server = server;
+ 
